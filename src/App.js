@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './Components/Header';
+import List from './Components/List';
+import AddNote from './Components/AddNote';
+import { ListProvider } from './Components/Context/ListContext';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  // return the div containing the 3 main parts of the app seperated into components
+  // the header, the list itself and the create note section
+  render() {
+    return (
+      <div className="App">
+        <ListProvider>
+          <Header />
+          <List />
+          <AddNote />
+        </ListProvider>
+      </div>
+    );
+  }
+  
 }
-
 export default App;
